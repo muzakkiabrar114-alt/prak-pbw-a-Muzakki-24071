@@ -41,6 +41,12 @@
             text-decoration: none;
             border-radius: 5px;
         }
+
+        .links {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+        }
     </style>
 </head>
 
@@ -51,7 +57,14 @@
 
         <p>Ini adalah halaman utama dari aplikasi blog kita.</p>
 
-        <a href="#" class="button">Mulai Membaca</a>
+        <div class="links">
+            @auth
+                <a href="{{ route('posts.index') }}" class="button">Kelola Postingan</a>
+            @else
+                <a href="{{ route('login') }}" class="button">Log in</a>
+                <a href="{{ route('register') }}" class="button">Register</a>
+            @endauth
+        </div>
     </div>
 
 </body>
